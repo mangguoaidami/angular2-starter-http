@@ -10,18 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
+var user_service_1 = require("./shared/services/user.service");
 var AppComponent = (function () {
-    function AppComponent(http) {
-        this.http = http;
+    function AppComponent(userservice) {
+        this.userservice = userservice;
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.message = 'This is the sample message.';
-        this.http.get('https://reqres.in/api/users?page=2')
+        this.userservice.getusermsg()
             .subscribe(function (res) {
-            console.log(res.json().data);
-            _this.users = res.json().data;
+            //console.log(res);
+            _this.users = res;
         });
     };
     return AppComponent;
@@ -31,7 +31,7 @@ AppComponent = __decorate([
         selector: 'my-app',
         template: "\n    <div class=\"jumbotron text-center\">\n      <h1>The App Lives!</h1>\n      <p>{{ message }}</p>\n    </div>\n    <div *ngIf=\"users\">\n      <div *ngFor=\"let user of users\">{{ user.first_name }}</div>\n    </div>\n  "
     }),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [user_service_1.UserService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

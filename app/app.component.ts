@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
 
+import { UserService } from './shared/services/user.service';
 import { User } from './shared/models/user';
-
 @Component({
   selector: 'my-app',
   template: `
@@ -19,15 +18,14 @@ export class AppComponent implements OnInit {
   public users: User[];
   public message: string;
   
-  constructor(private http: Http){}
+  constructor(private userservice: UserService){}
 
   ngOnInit() {
     this.message = 'This is the sample message.';
-    this.http.get('https://reqres.in/api/users?page=2')
-        .subscribe(res => {
-          console.log(res.json().data);
-          this.users = res.json().data;
-        })
-        
+    this.userservice.getusermsg()
+      .subscribe(res => {
+        //console.log(res);
+        this.users = res;
+      })
   }
 }
