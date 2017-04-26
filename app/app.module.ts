@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+
+import 'rxjs/add/operator/map';
+
 import { AppComponent } from './app.component';
+import { UserService } from './shared/services/user.service';
 
 @NgModule({
-  imports: [ BrowserModule ],
+  imports: [ BrowserModule, HttpModule, FormsModule ],
   declarations: [ AppComponent ],
+  providers: [ UserService ],
   bootstrap: [ AppComponent ]
 })
+
 export class AppModule {}
