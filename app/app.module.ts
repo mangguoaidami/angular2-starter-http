@@ -4,13 +4,16 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 import { AppComponent } from './app.component';
+import { UsersComponent } from './pages/users/users.component';
 import { UserService } from './shared/services/user.service';
+
 
 @NgModule({
   imports: [ BrowserModule, HttpModule, FormsModule ],
-  declarations: [ AppComponent ],
+  declarations: [ AppComponent, UsersComponent ],
   providers: [ UserService ],
   bootstrap: [ AppComponent ]
 })

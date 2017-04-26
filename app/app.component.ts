@@ -6,6 +6,7 @@ import { UserService } from './shared/services/user.service';
 @Component({
   selector: 'my-app',
   template: `
+    <my-users></my-users>
     <div class="jumbotron text-center">
       <h1>The App Lives!</h1>
       <p>{{ message }}</p>
@@ -20,13 +21,19 @@ export class AppComponent implements OnInit {
   private users: User[];
   private message: string;
 
-  constructor (private userserviceL: UserService) {}
+  constructor (private userservice: UserService) {}
 
   ngOnInit(){
     this.message = 'This is the sample message.';
-    this.userserviceL.getUsersMsg()
+    this.userservice.getUsersMsg()
         .subscribe(data => {
           this.users = data;
+          // console.log(data);
+        })
+
+    this.userservice.getUserMsg()
+        .subscribe(data => {
+          console.log(data)
         })
   }
 }

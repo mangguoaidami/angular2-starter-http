@@ -11,13 +11,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var Observable_1 = require("rxjs/Observable");
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
+        this.usersMsgUrl = 'https://reqres.in/api/users?page=2';
     }
     UserService.prototype.getUsersMsg = function () {
-        return this.http.get('https://reqres.in/api/users?page=2')
-            .map(function (data) { return data.json().data; });
+        return this.http.get(this.usersMsgUrl)
+            .map(function (data) { return data.json().data; })
+            .catch(this.handleError);
+    };
+    /**
+     * Get a single user
+     *
+     */
+    UserService.prototype.getUserMsg = function () {
+        return this.http.get('https://reqres.in/api/users/2')
+            .map(function (res) { return res.json().data; })
+            .catch(this.handleError);
+    };
+    /**
+     * handle any errors from the API
+     */
+    UserService.prototype.handleError = function (err) {
+        var errMessage;
+        if (err instanceof Response) {
+            var body = err.json() || '';
+            // let error = body.error || JSON.stringify(body);
+            var error = body || JSON.stringify(body);
+            errMessage = err.status + " - " + err.statusText + " || ''} " + error;
+        }
+        else {
+            errMessage = err.message ? err.message : err.toString();
+        }
+        return Observable_1.Observable.throw(errMessage);
     };
     return UserService;
 }());

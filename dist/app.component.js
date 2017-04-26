@@ -12,15 +12,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var user_service_1 = require("./shared/services/user.service");
 var AppComponent = (function () {
-    function AppComponent(userserviceL) {
-        this.userserviceL = userserviceL;
+    function AppComponent(userservice) {
+        this.userservice = userservice;
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.message = 'This is the sample message.';
-        this.userserviceL.getUsersMsg()
+        this.userservice.getUsersMsg()
             .subscribe(function (data) {
             _this.users = data;
+            // console.log(data);
+        });
+        this.userservice.getUserMsg()
+            .subscribe(function (data) {
+            console.log(data);
         });
     };
     return AppComponent;
@@ -28,7 +33,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n    <div class=\"jumbotron text-center\">\n      <h1>The App Lives!</h1>\n      <p>{{ message }}</p>\n    </div>\n\n    <div *ngIf=\"users\">\n      <div *ngFor=\"let user of users\">{{ user.first_name }}</div>\n    </div>\n  "
+        template: "\n    <my-users></my-users>\n    <div class=\"jumbotron text-center\">\n      <h1>The App Lives!</h1>\n      <p>{{ message }}</p>\n    </div>\n\n    <div *ngIf=\"users\">\n      <div *ngFor=\"let user of users\">{{ user.first_name }}</div>\n    </div>\n  "
     }),
     __metadata("design:paramtypes", [user_service_1.UserService])
 ], AppComponent);
