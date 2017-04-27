@@ -13,8 +13,9 @@ var forms_1 = require("@angular/forms");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
 var app_component_1 = require("./app.component");
-var userSingle_component_1 = require("./pages/userSingle/userSingle.component");
+var users_component_1 = require("./pages/users/users.component");
 var user_service_1 = require("./shared/services/user.service");
+var app_routing_1 = require("./app.routing");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -22,8 +23,8 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule],
-        declarations: [app_component_1.AppComponent, userSingle_component_1.UserSingleComponent],
+        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, app_routing_1.routing],
+        declarations: [app_component_1.AppComponent, users_component_1.UsersComponent],
         providers: [user_service_1.UserService],
         bootstrap: [app_component_1.AppComponent]
     })

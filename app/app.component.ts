@@ -6,7 +6,6 @@ import { UserService } from './shared/services/user.service';
 @Component({
   selector: 'my-app',
   template: `
-    <userSingle-app></userSingle-app>
     <div class="jumbotron text-center">
       <h1>The App Lives!</h1>
       <p>{{ message }}</p>
@@ -15,6 +14,8 @@ import { UserService } from './shared/services/user.service';
     <div *ngIf="users">
       <div *ngFor="let user of users">{{ user.first_name }}</div>
     </div>
+
+    <router-outlet></router-outlet>
   `
 })
 export class AppComponent implements OnInit {

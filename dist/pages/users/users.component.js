@@ -18,8 +18,8 @@ var UsersComponent = (function () {
 }());
 UsersComponent = __decorate([
     core_1.Component({
-        selector: 'my-users',
-        template: "\n        <div>dadas</div>\n    ",
+        selector: 'users-app',
+        templateUrl: './app/pages/users/users.component.html'
     }),
     __metadata("design:paramtypes", [])
 ], UsersComponent);
