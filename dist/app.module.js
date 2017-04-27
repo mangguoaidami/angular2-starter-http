@@ -13,7 +13,7 @@ var forms_1 = require("@angular/forms");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
 var app_component_1 = require("./app.component");
-var users_component_1 = require("./pages/users/users.component");
+var userSingle_component_1 = require("./pages/userSingle/userSingle.component");
 var user_service_1 = require("./shared/services/user.service");
 var AppModule = (function () {
     function AppModule() {
@@ -23,7 +23,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule],
-        declarations: [app_component_1.AppComponent, users_component_1.UsersComponent],
+        declarations: [app_component_1.AppComponent, userSingle_component_1.UserSingleComponent],
         providers: [user_service_1.UserService],
         bootstrap: [app_component_1.AppComponent]
     })

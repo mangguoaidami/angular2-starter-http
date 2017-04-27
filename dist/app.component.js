@@ -23,7 +23,7 @@ var AppComponent = (function () {
             _this.users = data;
             // console.log(data);
         });
-        this.userservice.getUserMsg()
+        this.userservice.getSingleUserMsg()
             .subscribe(function (data) {
             console.log(data);
         });
@@ -33,7 +33,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n    <my-users></my-users>\n    <div class=\"jumbotron text-center\">\n      <h1>The App Lives!</h1>\n      <p>{{ message }}</p>\n    </div>\n\n    <div *ngIf=\"users\">\n      <div *ngFor=\"let user of users\">{{ user.first_name }}</div>\n    </div>\n  "
+        template: "\n    <userSingle-app></userSingle-app>\n    <div class=\"jumbotron text-center\">\n      <h1>The App Lives!</h1>\n      <p>{{ message }}</p>\n    </div>\n\n    <div *ngIf=\"users\">\n      <div *ngFor=\"let user of users\">{{ user.first_name }}</div>\n    </div>\n  "
     }),
     __metadata("design:paramtypes", [user_service_1.UserService])
 ], AppComponent);

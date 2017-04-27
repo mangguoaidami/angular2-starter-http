@@ -10,18 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var UsersComponent = (function () {
-    function UsersComponent() {
+var UserSingleComponent = (function () {
+    function UserSingleComponent() {
     }
-    UsersComponent.prototype.ngOnInit = function () { };
-    return UsersComponent;
+    UserSingleComponent.prototype.ngOnInit = function () { };
+    return UserSingleComponent;
 }());
-UsersComponent = __decorate([
+UserSingleComponent = __decorate([
     core_1.Component({
-        selector: 'my-users',
-        template: "\n        <div>dadas</div>\n    ",
+        selector: 'userSingle-app',
+        // template: `
+        //     <div>this is userSingle</div>
+        // `
+        templateUrl: './app/pages/userSingle/userSingle.component.html'
     }),
     __metadata("design:paramtypes", [])
-], UsersComponent);
-exports.UsersComponent = UsersComponent;
-//# sourceMappingURL=users.component.js.map
+], UserSingleComponent);
+exports.UserSingleComponent = UserSingleComponent;
+//# sourceMappingURL=userSingle.component.js.map

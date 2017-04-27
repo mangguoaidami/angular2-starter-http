@@ -6,7 +6,7 @@ import { UserService } from './shared/services/user.service';
 @Component({
   selector: 'my-app',
   template: `
-    <my-users></my-users>
+    <userSingle-app></userSingle-app>
     <div class="jumbotron text-center">
       <h1>The App Lives!</h1>
       <p>{{ message }}</p>
@@ -30,8 +30,7 @@ export class AppComponent implements OnInit {
           this.users = data;
           // console.log(data);
         })
-
-    this.userservice.getUserMsg()
+    this.userservice.getSingleUserMsg()
         .subscribe(data => {
           console.log(data)
         })

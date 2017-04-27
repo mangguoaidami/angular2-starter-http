@@ -15,31 +15,30 @@ var Observable_1 = require("rxjs/Observable");
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
-        this.apiUrl = 'https://reqres.in/';
+        this.usersMsgUrl = 'https://reqres.in/api/users?page=2';
     }
-    /**
-     * Get all users
-     */
     UserService.prototype.getUsersMsg = function () {
-        return this.http.get(this.apiUrl + 'api/users?page=2')
+        return this.http.get(this.usersMsgUrl)
             .map(function (data) { return data.json().data; })
             .catch(this.handleError);
     };
     /**
-     * Get single user
+     * Get a single user
+     *
      */
-    UserService.prototype.getSingleUserMsg = function () {
-        return this.http.get(this.apiUrl + 'api/users/2')
-            .map(function (data) { return data.json(); })
+    UserService.prototype.getUserMsg = function () {
+        return this.http.get('https://reqres.in/api/users/2')
+            .map(function (res) { return res.json().data; })
             .catch(this.handleError);
     };
     /**
-     * Hangle any errors from AIP
+     * handle any errors from the API
      */
     UserService.prototype.handleError = function (err) {
         var errMessage;
         if (err instanceof Response) {
             var body = err.json() || '';
+            // let error = body.error || JSON.stringify(body);
             var error = body || JSON.stringify(body);
             errMessage = err.status + " - " + err.statusText + " || ''} " + error;
         }
