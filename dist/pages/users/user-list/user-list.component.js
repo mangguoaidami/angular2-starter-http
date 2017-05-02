@@ -10,32 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var user_service_1 = require("./shared/services/user.service");
-var AppComponent = (function () {
-    function AppComponent(userservice) {
+var user_service_1 = require("./../../../shared/services/user.service");
+var UserListComponent = (function () {
+    function UserListComponent(userservice) {
         this.userservice = userservice;
     }
-    AppComponent.prototype.ngOnInit = function () {
+    UserListComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.message = 'This is the sample message.';
         this.userservice.getUsersMsg()
             .subscribe(function (data) {
             _this.users = data;
-            // console.log(data);
-        });
-        this.userservice.getSingleUserMsg()
-            .subscribe(function (data) {
             console.log(data);
         });
     };
-    return AppComponent;
+    return UserListComponent;
 }());
-AppComponent = __decorate([
+UserListComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        template: "\n    \n    <div class=\"container\">\n      <h1>My HTTP App</h1>\n      <nav class=\"navbar navbar-default navbar-static-top\">\n        <div class=\"container\">\n          <ul class=\"nav navbar-nav\">\n            <li>\n              <a routerLink=\"/\">Users</a>\n            </li>\n          </ul>\n        </div>\n      </nav>\n    </div>\n\n    <router-outlet></router-outlet>\n  "
+        selector: 'userList-app',
+        templateUrl: './app/pages/users/user-list/user-list.component.html'
     }),
     __metadata("design:paramtypes", [user_service_1.UserService])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], UserListComponent);
+exports.UserListComponent = UserListComponent;
+//# sourceMappingURL=user-list.component.js.map

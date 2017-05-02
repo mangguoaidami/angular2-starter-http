@@ -1,0 +1,7 @@
+<div *ngIf="users">
+    <h2>this is list component</h2>
+    <div *ngFor="let user of users" class="col-sm-4" [routerLink]="['/users', user.id]">
+        <img [src]="user.avatar" class="img-circle" alt="">
+        <h1>{{ user.first_name + ' ' +user.last_name }}</h1>
+    </div>
+</div>

@@ -15,22 +15,22 @@ var Observable_1 = require("rxjs/Observable");
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
-        this.apiUrl = 'https://reqres.in/';
+        this.apiUrl = 'https://reqres.in/api/users';
     }
     /**
      * Get all users
      */
     UserService.prototype.getUsersMsg = function () {
-        return this.http.get(this.apiUrl + 'api/users?page=2')
+        return this.http.get(this.apiUrl + '?page=2')
             .map(function (data) { return data.json().data; })
             .catch(this.handleError);
     };
     /**
      * Get single user
      */
-    UserService.prototype.getSingleUserMsg = function () {
-        return this.http.get(this.apiUrl + 'api/users/2')
-            .map(function (data) { return data.json(); })
+    UserService.prototype.getSingleUserMsg = function (id) {
+        return this.http.get(this.apiUrl + "/" + id)
+            .map(function (data) { return data.json().data; })
             .catch(this.handleError);
     };
     /**

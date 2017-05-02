@@ -2,6 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var router_1 = require("@angular/router");
 var users_component_1 = require("./pages/users/users.component");
+var user_list_component_1 = require("./pages/users/user-list/user-list.component");
+var user_single_component_1 = require("./pages/users/user-single/user-single.component");
 exports.routes = [
     {
         path: '',
@@ -11,6 +13,16 @@ exports.routes = [
     {
         path: 'users',
         component: users_component_1.UsersComponent,
+        children: [
+            {
+                path: '',
+                component: user_list_component_1.UserListComponent
+            },
+            {
+                path: ':id',
+                component: user_single_component_1.UserSingleComponent
+            }
+        ]
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(exports.routes);

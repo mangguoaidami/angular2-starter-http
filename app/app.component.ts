@@ -6,13 +6,18 @@ import { UserService } from './shared/services/user.service';
 @Component({
   selector: 'my-app',
   template: `
-    <div class="jumbotron text-center">
-      <h1>The App Lives!</h1>
-      <p>{{ message }}</p>
-    </div>
-
-    <div *ngIf="users">
-      <div *ngFor="let user of users">{{ user.first_name }}</div>
+    
+    <div class="container">
+      <h1>My HTTP App</h1>
+      <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+          <ul class="nav navbar-nav">
+            <li>
+              <a routerLink="/">Users</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
 
     <router-outlet></router-outlet>

@@ -9,22 +9,22 @@ import { User } from './../models/user';
 export class UserService {
     constructor(private http: Http){}
 
-    private apiUrl: string = 'https://reqres.in/';
+    private apiUrl: string = 'https://reqres.in/api/users';
 
     /**
      * Get all users
      */
     getUsersMsg(): Observable<User[]>{
-        return this.http.get(this.apiUrl + 'api/users?page=2')
+        return this.http.get(this.apiUrl + '?page=2')
             .map(data => data.json().data)
             .catch(this.handleError);
     }
     /**
      * Get single user
      */
-    getSingleUserMsg(){
-        return this.http.get(this.apiUrl + 'api/users/2')
-            .map(data => data.json())
+    getSingleUserMsg(id: number): Observable<User>{
+        return this.http.get(`${this.apiUrl}/${id}`)
+            .map(data => data.json().data)
             .catch(this.handleError);
     }
     /**
