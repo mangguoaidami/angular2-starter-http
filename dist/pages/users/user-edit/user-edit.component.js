@@ -25,7 +25,7 @@ var UserEditComponent = (function () {
     };
     UserEditComponent.prototype.updateUser = function () {
         this.userservice.updateUser(this.user);
-        console.log(this.user);
+        this.feedback = 'name:' + this.user.name + ' ' + 'username:' + this.user.username;
     };
     return UserEditComponent;
 }());

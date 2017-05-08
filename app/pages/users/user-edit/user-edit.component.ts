@@ -10,6 +10,7 @@ import { UserService } from './../../../shared/services/user.service';
 
 export class UserEditComponent implements OnInit{
     private user: User;
+    private feedback;
 
     constructor(private userservice: UserService, private route: ActivatedRoute){}
 
@@ -21,6 +22,6 @@ export class UserEditComponent implements OnInit{
 
     updateUser(){
         this.userservice.updateUser(this.user);
-        console.log(this.user)
+        this.feedback = 'name:' + this.user.name  + ' ' + 'username:' + this.user.username;
     }
 }
