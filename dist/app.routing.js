@@ -4,6 +4,7 @@ var router_1 = require("@angular/router");
 var users_component_1 = require("./pages/users/users.component");
 var user_list_component_1 = require("./pages/users/user-list/user-list.component");
 var user_single_component_1 = require("./pages/users/user-single/user-single.component");
+var user_edit_component_1 = require("./pages/users/user-edit/user-edit.component");
 exports.routes = [
     {
         path: '',
@@ -21,6 +22,10 @@ exports.routes = [
             {
                 path: ':id',
                 component: user_single_component_1.UserSingleComponent
+            },
+            {
+                path: ':id/edit',
+                component: user_edit_component_1.UserEditComponent
             }
         ]
     }

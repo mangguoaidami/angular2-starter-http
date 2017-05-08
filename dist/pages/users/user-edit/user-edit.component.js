@@ -12,28 +12,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var user_service_1 = require("./../../../shared/services/user.service");
-var UserSingleComponent = (function () {
-    function UserSingleComponent(route, userservice) {
-        this.route = route;
+var UserEditComponent = (function () {
+    function UserEditComponent(userservice, route) {
         this.userservice = userservice;
+        this.route = route;
     }
-    UserSingleComponent.prototype.ngOnInit = function () {
+    UserEditComponent.prototype.ngOnInit = function () {
         var _this = this;
-        // grab the id from the URL
         var id = this.route.snapshot.params['id'];
-        //use the userservice
         this.userservice.getSingleUserMsg(id)
-            .subscribe(function (data) {
-            _this.user = data;
-        });
+            .subscribe(function (data) { return _this.user = data; });
     };
-    return UserSingleComponent;
+    UserEditComponent.prototype.updateUser = function () {
+        this.userservice.updateUser(this.user);
+        console.log(this.user);
+    };
+    return UserEditComponent;
 }());
-UserSingleComponent = __decorate([
+UserEditComponent = __decorate([
     core_1.Component({
-        templateUrl: './app/pages/users/user-single/user-single.component.html'
+        templateUrl: './app/pages/users/user-edit/user-edit.component.html'
     }),
-    __metadata("design:paramtypes", [router_1.ActivatedRoute, user_service_1.UserService])
-], UserSingleComponent);
-exports.UserSingleComponent = UserSingleComponent;
-//# sourceMappingURL=user-single.component.js.map
+    __metadata("design:paramtypes", [user_service_1.UserService, router_1.ActivatedRoute])
+], UserEditComponent);
+exports.UserEditComponent = UserEditComponent;
+//# sourceMappingURL=user-edit.component.js.map

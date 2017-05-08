@@ -1,7 +1,6 @@
-<div *ngIf="users">
-    <h2>this is list component</h2>
-    <div *ngFor="let user of users" class="col-sm-4" [routerLink]="['/users', user.id]">
-        <img [src]="user.avatar" class="img-circle" alt="">
-        <h1>{{ user.first_name + ' ' +user.last_name }}</h1>
+<div *ngIf="userlists" class="row">
+    <div *ngFor="let userlist of userlists" class="col-sm-4 list" [routerLink]="['/users', userlist.id]">
+        <img [src]="userlist.avatar" alt="" class="img-circle">
+        <h2>{{ userlist.name }}</h2>
     </div>
 </div>

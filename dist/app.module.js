@@ -16,6 +16,7 @@ var app_component_1 = require("./app.component");
 var users_component_1 = require("./pages/users/users.component");
 var user_list_component_1 = require("./pages/users/user-list/user-list.component");
 var user_single_component_1 = require("./pages/users/user-single/user-single.component");
+var user_edit_component_1 = require("./pages/users/user-edit/user-edit.component");
 var user_service_1 = require("./shared/services/user.service");
 var app_routing_1 = require("./app.routing");
 var AppModule = (function () {
@@ -26,7 +27,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, app_routing_1.routing],
-        declarations: [app_component_1.AppComponent, users_component_1.UsersComponent, user_list_component_1.UserListComponent, user_single_component_1.UserSingleComponent],
+        declarations: [app_component_1.AppComponent, users_component_1.UsersComponent, user_list_component_1.UserListComponent, user_single_component_1.UserSingleComponent, user_edit_component_1.UserEditComponent],
         providers: [user_service_1.UserService],
         bootstrap: [app_component_1.AppComponent]
     })

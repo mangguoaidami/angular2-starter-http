@@ -10,12 +10,13 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserListComponent } from './pages/users/user-list/user-list.component';
 import { UserSingleComponent } from './pages/users/user-single/user-single.component';
+import { UserEditComponent } from './pages/users/user-edit/user-edit.component';
 import { UserService } from './shared/services/user.service';
 import { routing } from './app.routing';
 
 @NgModule({
   imports: [ BrowserModule, HttpModule, FormsModule, routing ],
-  declarations: [ AppComponent, UsersComponent, UserListComponent, UserSingleComponent ],
+  declarations: [ AppComponent, UsersComponent, UserListComponent, UserSingleComponent, UserEditComponent ],
   providers: [ UserService ],
   bootstrap: [ AppComponent ]
 })

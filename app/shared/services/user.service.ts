@@ -17,6 +17,7 @@ export class UserService {
     getUsersMsg(): Observable<User[]>{
         return this.http.get(this.apiUrl + '?page=2')
             .map(data => data.json().data)
+            .map(data => data.map(this.toUserFormat))
             .catch(this.handleError);
     }
     /**
@@ -25,8 +26,19 @@ export class UserService {
     getSingleUserMsg(id: number): Observable<User>{
         return this.http.get(`${this.apiUrl}/${id}`)
             .map(data => data.json().data)
+            .map(this.toUserFormat)
             .catch(this.handleError);
     }
+
+    /**
+     * edit single message
+     */
+    updateUser(user): Observable<User>{
+        return this.http.put(` ${this.apiUrl}/${user.id}`, user)
+            .map(res => res.json())
+            .catch(this.handleError);
+    }
+
     /**
      * Hangle any errors from AIP
      */
@@ -42,5 +54,16 @@ export class UserService {
         }
 
         return Observable.throw(errMessage);
+    }
+    /**
+     * change data format
+     */
+    private toUserFormat(user): User {
+        return {
+            id: user.id,
+            name: `${user.first_name} ${user.last_name}`,
+            username: user.first_name,
+            avatar: user.avatar
+        };
     }
 }

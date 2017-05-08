@@ -19,15 +19,15 @@ var UserListComponent = (function () {
         var _this = this;
         this.userservice.getUsersMsg()
             .subscribe(function (data) {
-            _this.users = data;
-            console.log(data);
+            _this.userlists = data;
         });
     };
     return UserListComponent;
 }());
 UserListComponent = __decorate([
     core_1.Component({
-        selector: 'userList-app',
+        selector: 'UserList-app',
+        styles: ["\n        .list{\n            cursor: pointer;\n        }\n    "],
         templateUrl: './app/pages/users/user-list/user-list.component.html'
     }),
     __metadata("design:paramtypes", [user_service_1.UserService])

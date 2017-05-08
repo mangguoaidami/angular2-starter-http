@@ -21,8 +21,10 @@ var UserService = (function () {
      * Get all users
      */
     UserService.prototype.getUsersMsg = function () {
+        var _this = this;
         return this.http.get(this.apiUrl + '?page=2')
             .map(function (data) { return data.json().data; })
+            .map(function (data) { return data.map(_this.toUserFormat); })
             .catch(this.handleError);
     };
     /**
@@ -31,6 +33,15 @@ var UserService = (function () {
     UserService.prototype.getSingleUserMsg = function (id) {
         return this.http.get(this.apiUrl + "/" + id)
             .map(function (data) { return data.json().data; })
+            .map(this.toUserFormat)
+            .catch(this.handleError);
+    };
+    /**
+     * edit single message
+     */
+    UserService.prototype.updateUser = function (user) {
+        return this.http.put(" " + this.apiUrl + "/" + user.id, user)
+            .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
     /**
@@ -47,6 +58,17 @@ var UserService = (function () {
             errMessage = err.message ? err.message : err.toString();
         }
         return Observable_1.Observable.throw(errMessage);
+    };
+    /**
+     * change data format
+     */
+    UserService.prototype.toUserFormat = function (user) {
+        return {
+            id: user.id,
+            name: user.first_name + " " + user.last_name,
+            username: user.first_name,
+            avatar: user.avatar
+        };
     };
     return UserService;
 }());

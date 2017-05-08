@@ -15,25 +15,13 @@ var AppComponent = (function () {
     function AppComponent(userservice) {
         this.userservice = userservice;
     }
-    AppComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.message = 'This is the sample message.';
-        this.userservice.getUsersMsg()
-            .subscribe(function (data) {
-            _this.users = data;
-            // console.log(data);
-        });
-        this.userservice.getSingleUserMsg()
-            .subscribe(function (data) {
-            console.log(data);
-        });
-    };
+    AppComponent.prototype.ngOnInit = function () { };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n    \n    <div class=\"container\">\n      <h1>My HTTP App</h1>\n      <nav class=\"navbar navbar-default navbar-static-top\">\n        <div class=\"container\">\n          <ul class=\"nav navbar-nav\">\n            <li>\n              <a routerLink=\"/\">Users</a>\n            </li>\n          </ul>\n        </div>\n      </nav>\n    </div>\n\n    <router-outlet></router-outlet>\n  "
+        template: "\n    \n    <div class=\"container\">\n      <h1>My HTTP App</h1>\n      <nav class=\"navbar navbar-default navbar-static-top\">\n        <div class=\"container\">\n          <a routerLink=\"/\" class=\"navbar-brand\">my Brand</a>\n          <ul class=\"nav navbar-nav\">\n            <li>\n              <a routerLink=\"/users\">Users</a>\n            </li>\n          </ul>\n        </div>\n      </nav>\n    </div>\n\n    <router-outlet></router-outlet>\n  "
     }),
     __metadata("design:paramtypes", [user_service_1.UserService])
 ], AppComponent);

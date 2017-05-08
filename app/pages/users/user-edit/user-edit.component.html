@@ -1,0 +1,13 @@
+<div *ngIf="user">
+    <form (ngSubmit)="updateUser()">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" class="form-control" [(ngModel)]="user.name">
+        </div>
+        <div class="form-control">
+            <label for="username"></label>
+            <input type="text" name="username" [(ngModel)]="user.username">
+        </div>
+        <button type="submit" class="btn btn-success btn-sm">submit</button>
+    </form>
+</div>

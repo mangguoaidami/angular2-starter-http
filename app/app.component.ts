@@ -11,9 +11,10 @@ import { UserService } from './shared/services/user.service';
       <h1>My HTTP App</h1>
       <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
+          <a routerLink="/" class="navbar-brand">my Brand</a>
           <ul class="nav navbar-nav">
             <li>
-              <a routerLink="/">Users</a>
+              <a routerLink="/users">Users</a>
             </li>
           </ul>
         </div>
@@ -29,16 +30,5 @@ export class AppComponent implements OnInit {
 
   constructor (private userservice: UserService) {}
 
-  ngOnInit(){
-    this.message = 'This is the sample message.';
-    this.userservice.getUsersMsg()
-        .subscribe(data => {
-          this.users = data;
-          // console.log(data);
-        })
-    this.userservice.getSingleUserMsg()
-        .subscribe(data => {
-          console.log(data)
-        })
-  }
+  ngOnInit(){}
 }
