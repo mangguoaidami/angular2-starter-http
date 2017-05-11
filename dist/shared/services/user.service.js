@@ -39,9 +39,9 @@ var UserService = (function () {
     /**
      * edit single message
      */
-    UserService.prototype.updateUser = function (user) {
-        return this.http.put(" " + this.apiUrl + "/" + user.id, user)
-            .map(function (res) { return res.json(); })
+    UserService.prototype.updateuser = function (user) {
+        return this.http.put(this.apiUrl + "/" + user.id, user)
+            .map(function (date) { return date.json(); })
             .catch(this.handleError);
     };
     /**

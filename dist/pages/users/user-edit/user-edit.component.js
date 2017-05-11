@@ -13,9 +13,9 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var user_service_1 = require("./../../../shared/services/user.service");
 var UserEditComponent = (function () {
-    function UserEditComponent(userservice, route) {
-        this.userservice = userservice;
+    function UserEditComponent(route, userservice) {
         this.route = route;
+        this.userservice = userservice;
     }
     UserEditComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -23,9 +23,9 @@ var UserEditComponent = (function () {
         this.userservice.getSingleUserMsg(id)
             .subscribe(function (data) { return _this.user = data; });
     };
-    UserEditComponent.prototype.updateUser = function () {
-        this.userservice.updateUser(this.user);
-        this.feedback = 'name:' + this.user.name + ' ' + 'username:' + this.user.username;
+    UserEditComponent.prototype.updateuser = function () {
+        console.log(this.user.name);
+        this.userservice.updateuser(this.user);
     };
     return UserEditComponent;
 }());
@@ -33,7 +33,7 @@ UserEditComponent = __decorate([
     core_1.Component({
         templateUrl: './app/pages/users/user-edit/user-edit.component.html'
     }),
-    __metadata("design:paramtypes", [user_service_1.UserService, router_1.ActivatedRoute])
+    __metadata("design:paramtypes", [router_1.ActivatedRoute, user_service_1.UserService])
 ], UserEditComponent);
 exports.UserEditComponent = UserEditComponent;
 //# sourceMappingURL=user-edit.component.js.map

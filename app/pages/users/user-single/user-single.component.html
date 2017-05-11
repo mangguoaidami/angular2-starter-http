@@ -4,5 +4,7 @@
                 {{ user.name }}
                 <small>{{ user.username }}</small>
         </h1>
-        <a class="btn btn-info btn-sm" [routerLink]="['/users', user.id, 'edit']">updateUser</a>
+        <a [routerLink]="['/users', user.id, 'edit']" class="btn btn-info btn-sm">edit</a>
+        <email-app [avatarMsg]="avatarFromParent" (outer)="recive($event)">loading...</email-app>
+        <p>i want to say: {{msgFromChild}}</p>
 </div>

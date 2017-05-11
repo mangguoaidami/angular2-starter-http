@@ -10,8 +10,15 @@ import { User } from './../../../shared/models/user';
 
 export class UserSingleComponent implements OnInit{
     private user: User;
+    private avatarFromParent: string;
+    private msgFromChild: string;
 
     constructor(private route: ActivatedRoute, private userservice: UserService) {}
+
+    //recive()
+        recive(msg: string){
+            this.msgFromChild = msg;
+        }
 
     ngOnInit() {
         // grab the id from the URL
@@ -21,6 +28,7 @@ export class UserSingleComponent implements OnInit{
         this.userservice.getSingleUserMsg(id)
             .subscribe(data => {
                 this.user = data;
+                this.avatarFromParent = data.avatar;
             })
     }
 }

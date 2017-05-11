@@ -1,19 +1,15 @@
-<div *ngIf="!feedback">
+<div *ngIf="!freedback">
     <div *ngIf="user">
-        <form (ngSubmit)="updateUser()">
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" name="name" class="form-control" [(ngModel)]="user.name">
-        </div>
-        <div class="form-group">
-            <label for="username">username</label>
-            <input type="text" class="form-control" name="username" [(ngModel)]="user.username">
-        </div>
-        <button type="submit" class="btn btn-success btn-sm">submit</button>
-    </form>
+        <form (ngSubmit)="updateuser()">
+            <div class="form-group">
+                <label for="name">name</label>
+                <input type="text" name="name" [(ngModel)]="user.name">
+            </div>
+            <div class="form-group">
+                <label for="username">username</label>
+                <input type="text" name="username" [(ngModel)]="user.username">
+            </div>
+            <button class="btn btn-success" type="submit">submit</button>
+        </form>
     </div>
-</div>
-
-<div *ngIf="feedback">
-    {{ feedback }}
 </div>

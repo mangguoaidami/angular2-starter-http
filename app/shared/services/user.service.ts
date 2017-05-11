@@ -33,9 +33,9 @@ export class UserService {
     /**
      * edit single message
      */
-    updateUser(user): Observable<User>{
-        return this.http.put(` ${this.apiUrl}/${user.id}`, user)
-            .map(res => res.json())
+    updateuser(user){
+        return this.http.put(`${this.apiUrl}/${user.id}`, user)
+            .map(date => date.json())
             .catch(this.handleError);
     }
 

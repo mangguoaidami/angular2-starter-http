@@ -17,6 +17,10 @@ var UserSingleComponent = (function () {
         this.route = route;
         this.userservice = userservice;
     }
+    //recive()
+    UserSingleComponent.prototype.recive = function (msg) {
+        this.msgFromChild = msg;
+    };
     UserSingleComponent.prototype.ngOnInit = function () {
         var _this = this;
         // grab the id from the URL
@@ -25,6 +29,7 @@ var UserSingleComponent = (function () {
         this.userservice.getSingleUserMsg(id)
             .subscribe(function (data) {
             _this.user = data;
+            _this.avatarFromParent = data.avatar;
         });
     };
     return UserSingleComponent;

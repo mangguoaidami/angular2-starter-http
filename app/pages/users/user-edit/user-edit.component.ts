@@ -10,18 +10,17 @@ import { UserService } from './../../../shared/services/user.service';
 
 export class UserEditComponent implements OnInit{
     private user: User;
-    private feedback;
 
-    constructor(private userservice: UserService, private route: ActivatedRoute){}
+    constructor(private route: ActivatedRoute, private userservice: UserService){}
 
     ngOnInit(){
         let id = this.route.snapshot.params['id'];
         this.userservice.getSingleUserMsg(id)
-            .subscribe(data => this.user = data)
+            .subscribe(data => this.user = data);
     }
 
-    updateUser(){
-        this.userservice.updateUser(this.user);
-        this.feedback = 'name:' + this.user.name  + ' ' + 'username:' + this.user.username;
+    updateuser(){
+        console.log(this.user.name);
+        this.userservice.updateuser(this.user);
     }
 }

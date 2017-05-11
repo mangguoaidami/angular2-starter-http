@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class UsersComponent implements OnInit{
+    private msg: string;
+
     constructor() {}
 
     ngOnInit() {}
